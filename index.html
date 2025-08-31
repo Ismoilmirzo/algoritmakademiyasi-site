@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algoritm Akademiyasi — Informatika olimpiadalari va CP tayyorgarlik</title>
+  <meta name="description" content="Algoritm Akademiyasi: 5 darajali CP va olimpiada tayyorgarligi, real natijalar, mentorlik. Tez aloqa uchun Telegramga yozing." />
+  <meta name="theme-color" content="#1E2A44" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Algoritm Akademiyasi — Informatika olimpiadalari va CP tayyorgarlik" />
+  <meta property="og:description" content="5 darajali dastur, natijaga yo‘naltirilgan darslar, mentorlik va real contest tajribasi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Algoritm+Akademiyasi" />
+  <meta property="og:url" content="https://example.uz" />
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"EducationalOrganization",
+    "name":"Algoritm Akademiyasi",
+    "url":"https://example.uz",
+    "sameAs":[
+      "https://t.me/algoritm_akademiyasi",
+      "https://www.instagram.com/algoritm_akademiyasi/"
+    ],
+    "contactPoint":[{"@type":"ContactPoint","contactType":"customer support","url":"https://t.me/ismoilmirzouz"}]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#1E2A44;
+      --muted:#5b6b8b;
+      --brand:#00A6A6;
+      --brand-ink:#024a4a;
+      --soft:#F5F7FA;
+      --card:#ffffff;
+      --shadow: 0 10px 20px rgba(30,42,68,0.08);
+      --radius:18px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#0e1422;
+        --text:#e9eefc;
+        --muted:#b1bddb;
+        --brand:#22c7c7;
+        --brand-ink:#083c3c;
+        --soft:#121a2e;
+        --card:#10192b;
+        --shadow: 0 10px 20px rgba(0,0,0,0.35);
+      }
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Noto Sans",Arial,sans-serif;
+      background:var(--bg); color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1160px; margin:0 auto; padding:0 20px}
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:var(--brand); color:#fff; padding:.9rem 1.2rem;
+      border-radius:12px; font-weight:600; border:0; cursor:pointer;
+      box-shadow: var(--shadow); text-decoration:none;
+      transition: transform .05s ease;
+    }
+    .btn:active{transform: translateY(1px)}
+    .btn.secondary{background:transparent; color:var(--brand); border:2px solid var(--brand)}
+    .btn.ghost{background:transparent; color:var(--text)}
+    .pill{display:inline-block; padding:.35rem .7rem; border-radius:999px; background:var(--soft); color:var(--muted); font-size:.85rem}
+    .tag{padding:.25rem .6rem; border:1px solid var(--soft); border-radius:999px; font-size:.8rem; color:var(--muted)}
+    header{
+      position:sticky; top:0; z-index:50; background:rgba(255,255,255,.7);
+      backdrop-filter: blur(8px); border-bottom:1px solid rgba(0,0,0,.05);
+    }
+    @media (prefers-color-scheme: dark){ header{background: rgba(16,25,43,.6); border-bottom-color:rgba(255,255,255,.06)} }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    .brand{display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.3px}
+    .logo-img{width:36px; height:36px; border-radius:10px; box-shadow:var(--shadow); object-fit:cover}
+    nav ul{display:flex; list-style:none; gap:1rem; padding:0; margin:0}
+    nav a{color:var(--text); font-weight:600}
+    .hero{
+      padding:64px 0 40px; position:relative; overflow:hidden;
+      background: radial-gradient(1200px 400px at 50% -80px, var(--soft), transparent 60%);
+    }
+    .hero h1{font-size:clamp(28px, 3.6vw, 44px); line-height:1.15; margin:.4rem 0 1rem}
+    .lead{font-size:1.1rem; color:var(--muted); max-width:800px}
+    .hero-cta{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.2rem}
+    .hero-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px}
+    .stat{background:var(--card); border-radius:var(--radius); box-shadow: var(--shadow); padding:16px; text-align:center}
+    .stat b{font-size:1.3rem; display:block}
+    @media (max-width:800px){ .hero-stats{grid-template-columns:repeat(2,1fr)} }
+    section{scroll-margin-top:90px; padding:54px 0}
+    .grid{display:grid; gap:16px}
+    .cards{grid-template-columns: repeat(3,1fr)}
+    @media (max-width:1000px){ .cards{grid-template-columns: repeat(2,1fr)} }
+    @media (max-width:680px){ .cards{grid-template-columns: 1fr} }
+    .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .4rem}
+    .card ul{margin:.4rem 0 0 1.1rem}
+    .muted{color:var(--muted)}
+    .section-title{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:18px}
+    .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+    .kpi{background:var(--card); border-radius:var(--radius); padding:18px; text-align:center; box-shadow:var(--shadow)}
+    @media (max-width:900px){ .kpis{grid-template-columns:repeat(2,1fr)} }
+    .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .quote{background:var(--card); border-left:4px solid var(--brand); border-radius:14px; padding:16px; box-shadow:var(--shadow)}
+    @media (max-width:900px){ .testimonials{grid-template-columns:1fr} }
+    details{background:var(--card); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700}
+    .contact{display:grid; grid-template-columns:1fr; gap:16px}
+    .socials{display:flex; flex-wrap:wrap; gap:.6rem}
+    .social-btn{display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--soft); border-radius:12px; padding:.7rem .9rem; color:var(--text)}
+    .sticky-cta{
+      position:fixed; bottom:12px; left:12px; right:12px; display:none;
+      background:var(--brand); color:#fff; border-radius:16px; padding:.9rem 1rem;
+      box-shadow: var(--shadow); align-items:center; justify-content:center; gap:.6rem; font-weight:700;
+    }
+    .sticky-cta:active{transform: translateY(1px)}
+    @media (max-width:760px){ .sticky-cta{display:flex} }
+    footer{padding:24px 0 80px; color:var(--muted)}
+    .sr-only{position:absolute; width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{left:16px; top:16px; width:auto; height:auto; background:var(--brand); color:#fff; padding:.5rem .8rem; border-radius:10px; z-index:100}
+    .inline-icon{width:18px;height:18px;display:inline-block;vertical-align:-3px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Kontentga o‘tish</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="Asosiy navigatsiya">
+      <div class="brand">
+        <img class="logo-img" src="logo.png" alt="Algoritm Akademiyasi logotipi" />
+        <span>Algoritm Akademiyasi</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">Biz haqimizda</a></li>
+          <li><a href="#programs">Dasturlar</a></li>
+          <li><a href="#results">Natijalar</a></li>
+          <li><a href="#faqs">Savollar</a></li>
+          <li><a href="#contact">Aloqa</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="pill">Olimpiada &middot; Competitive Programming · Onlayn darslar</span>
+        <h1>Algoritm Akademiyasi — informatik olimpiadalar va CP bo‘yicha kuchli tayyorgarlik.</h1>
+        <p class="lead">5 darajali dastur, natijaga yo‘naltirilgan darslar, mentorlik va <b>real contest</b> tajribasi. Eng tez aloqa — <a href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener">Telegram</a>.</p>
+        <div class="hero-cta">
+          <a class="btn" href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener" aria-label="Telegramga yozish">
+            <svg class="inline-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 13.2l.2 3.7c.3 0 .5-.1.7-.3l1.7-1.6 3.5 2.6c.6.3 1.1.1 1.3-.6l2.4-11c.2-.9-.3-1.3-1.1-1l-14 5.4c-.9.3-.9.9-.2 1.1l3.6 1.1 8.3-5.2-5.1 5.6z" fill="currentColor"/></svg>
+            Telegramga yozish
+          </a>
+          <a class="btn secondary" href="https://t.me/algoritm_akademiyasi" target="_blank" rel="noopener">Kanalga qo‘shilish</a>
+          <a class="btn ghost" href="https://www.instagram.com/algoritm_akademiyasi/" target="_blank" rel="noopener">Instagramni ko‘rish</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><b>Top-10 Respublika</b><span class="muted">final bosqichida</span></div>
+          <div class="stat"><b>3 kun/hafta</b><span class="muted">2 soat/dars</span></div>
+          <div class="stat"><b>Custom setlar</b><span class="muted">har dars uchun</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>Biz haqimizda</h2>
+          <span class="tag">Onlayn darslar</span>
+        </div>
+        <div class="grid" style="grid-template-columns:1.2fr .8fr">
+          <div class="card">
+            <h3>Missiya</h3>
+            <p>Biz o‘quvchilarga <b>masala yechish orqali fikrlash</b>ni o‘rgatamiz: vaqtni boshqarish, to‘g‘ri strategiya, va real musobaqa tajribasi.</p>
+            <h3>Yondashuv</h3>
+            <ul>
+              <li>Custom problem setlar — darajaga mos.</li>
+              <li>Contest breakdown — Codeforces/Robocamp tahlillari.</li>
+              <li>Odatlar & time-management — barqaror o‘sish.</li>
+              <li><b>Bepul reference PDF’lar</b> — qayta ko‘rishni tezlashtiradi.</li>
+              <li>Anti-cheating siyosati — uzoq masofaga yuguramiz.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Asoschi & Mentor</h3>
+            <p><b>Ismoilmirzo Inoyatov</b> — informatika fanidan Respublika olimpiadasida <b>top 3</b>, ko‘p yillik olimpiada va CP tajribasi bilan murabbiylik qiladi.</p>
+            <p class="muted">“Har bir dars aniq natijaga bog‘langan.”</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs">
+      <div class="container">
+        <div class="section-title">
+          <h2>Dasturlar</h2>
+          <a class="btn secondary" href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener">Narxlarni Telegramda so‘rang</a>
+        </div>
+        <div class="grid cards">
+          <div class="card">
+            <h3>C++ Basics</h3>
+            <p class="muted">Python’dan kelganlar uchun ham mos.</p>
+            <ul>
+              <li>Sintaksis, I/O, array, string.</li>
+              <li>STL kirish: vector, pair.</li>
+              <li>Eng oddiy greedy & brute force.</li>
+            </ul>
+            <p><span class="tag">Boshlang‘ich</span> <span class="tag">2 soat</span> <span class="tag">Haftasiga 3 marta</span> <span class="tag">Davomiyligi: 1 oy</span></p>
+          </div>
+
+          <div class="card">
+            <h3>CP Foundation (sport dasturlash asoslari)</h3>
+            <p class="muted">CP’da ishlatiladigan barcha bazaviy texnikalar.</p>
+            <ul>
+              <li>STL: set, map, stack, queue.</li>
+              <li>Two-pointers, binary search.</li>
+              <li>Time-management va practice rejalar.</li>
+            </ul>
+            <p><span class="tag">Fundament</span> <span class="tag">Contest ritmi</span> <span class="tag">Davomiyligi: 3 oy</span></p>
+          </div>
+
+          <div class="card">
+            <h3>Algorithms + Contests</h3>
+            <ul>
+              <li>Greedy, prefix/suffix, hashing.</li>
+              <li>Graph basic: BFS/DFS, komponentlar.</li>
+              <li>Har hafta mini-contest & tahlil.</li>
+            </ul>
+            <p><span class="tag">O‘rta</span> <span class="tag">Nazorat + uyga vazifa</span> <span class="tag">Davomiyligi: 4 oy</span></p>
+          </div>
+
+          <div class="card">
+            <h3>Advanced Algorithms + Contests</h3>
+            <ul>
+              <li>DP, graph advanced, trees.</li>
+              <li>Segment tree/DSU, shortest paths.</li>
+              <li>Case-study: regional & national problems.</li>
+            </ul>
+            <p><span class="tag">Advanced</span> <span class="tag">IOI-oriented</span></p>
+          </div>
+
+          <div class="card">
+            <h3>IOI style (Only) + Rarely Algorithms</h3>
+            <ul>
+              <li>IOI formatidagi setlar & tahlil.</li>
+              <li>Low-intensity haftalar & burnout’ni oldini olish.</li>
+              <li>Individual roadmap & feedback sessiyalari.</li>
+            </ul>
+            <p><span class="tag">Top tayyorgarlik</span> <span class="tag">IOI-oriented</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="results">
+      <div class="container">
+        <div class="section-title">
+          <h2>Natijalar & Hikoyalar</h2>
+          <span class="muted">Yilma-yil yutuqlar va real tajribalar</span>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>Viloyat g‘oliblari</b><div class="muted">ko‘plab</div></div>
+          <div class="kpi"><b>Respublika finalchilari</b><div class="muted">muntazam</div></div>
+          <div class="kpi"><b>Codeforces practice</b><div class="muted">live tahlillar</div></div>
+          <div class="kpi"><b>Mentorlik</b><div class="muted">individual yo‘l xarita</div></div>
+        </div>
+
+        <div class="testimonials" style="margin-top:14px">
+          <div class="quote">“Har darsdan keyin farzandim aniq natija ko‘rsatadi — qaysi mavzuni oldi, qanday masalalarni yecha oladi.” <div class="muted">— Ota-ona fikri</div></div>
+          <div class="quote">“Contest breakdown’lar qattiq yoqadi. Real vaqt tahlil bo‘lgani uchun xatolarimni tez to‘g‘rilayman.” <div class="muted">— O‘quvchi</div></div>
+          <div class="quote">“Odatlar va time-management bo‘yicha maslahatlar natijani ushlab turishga yordam beradi.” <div class="muted">— O‘quvchi</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs -->
+    <section id="faqs">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tez-tez so‘raladigan savollar</h2>
+          <span class="muted">Qisqa va lo‘nda javoblar</span>
+        </div>
+        <details>
+          <summary>Qaysi darajadan boshlashim kerak?</summary>
+          <p>Agar C++ yangi bo‘lsa — <b>C++ Basics</b>. Pythonni bilsangiz ham shu moduldan boshlashingiz mumkin. Test dars/diagnostika Telegram orqali beriladi.</p>
+        </details>
+        <details>
+          <summary>Python bilsam, C++ga qanday o‘tamiz?</summary>
+          <p>Syntax bridge, STL kirish va 2-3 hafta ichida CP asosiy mavzulariga o‘tamiz. Paralel ravishda practice setlar beriladi.</p>
+        </details>
+        <details>
+          <summary>Darslar jadvali va formati?</summary>
+          <p>Odatda <b>haftasiga 3 kun</b>, <b>2 soat</b>dan. <b>Onlayn</b> format.</p>
+        </details>
+        <details>
+          <summary>Uyga vazifa va nazorat qanday?</summary>
+          <p>Har darsga mos custom set, deadline va qisqa nazorat. Haftalik mini-contest va tahlil sessiyalari.</p>
+        </details>
+        <details>
+          <summary>Cheating siyosati?</summary>
+          <p>Qisqa yo‘llar — qisqa natijalar. Akademiyada mustaqil fikrlash, tushunish va halol practice qadrlanadi.</p>
+        </details>
+        <details>
+          <summary>Sertifikatlar beriladimi?</summary>
+          <p>Ha, daraja yakunida ichki sertifikat beriladi. Asosiy e’tibor — <b>haqiqiy natija va rivojlanish</b>.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Aloqa</h2>
+          <span class="muted">Eng tez yo‘l — Telegramga yozing</span>
+        </div>
+        <div class="contact">
+          <div class="card">
+            <h3>To‘g‘ridan-to‘g‘ri xabar (DM)</h3>
+            <p><a class="btn" href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener">Telegramga yozish</a></p>
+            <p class="muted">Savolingiz, daraja tanlash, jadval va narxlar uchun shu yerga yozing.</p>
+            <h3 style="margin-top:14px">Ijtimoiy tarmoqlar</h3>
+            <div class="socials">
+              <a class="social-btn" href="https://t.me/algoritm_akademiyasi" target="_blank" rel="noopener" aria-label="Telegram kanal">
+                <svg class="inline-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 13.2l.2 3.7c.3 0 .5-.1.7-.3l1.7-1.6 3.5 2.6c.6.3 1.1.1 1.3-.6l2.4-11c.2-.9-.3-1.3-1.1-1l-14 5.4c-.9.3-.9.9-.2 1.1l3.6 1.1 8.3-5.2-5.1 5.6z" fill="currentColor"/></svg>
+                Telegram kanal
+              </a>
+              <a class="social-btn" href="https://www.instagram.com/algoritm_akademiyasi/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg class="inline-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm7-1a1 1 0 10-2 0 1 1 0 002 0z" stroke="currentColor" stroke-width="2"/></svg>
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile sticky CTA -->
+  <a class="sticky-cta" href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener" aria-label="Telegramga yozish (mobil)">
+    <svg class="inline-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 13.2l.2 3.7c.3 0 .5-.1 .7-.3l1.7-1.6 3.5 2.6c.6.3 1.1.1 1.3-.6l2.4-11c.2-.9-.3-1.3-1.1-1l-14 5.4c-.9.3-.9.9-.2 1.1l3.6 1.1 8.3-5.2-5.1 5.6z" fill="currentColor"/></svg>
+    Telegramga yozish
+  </a>
+
+  <footer>
+    <div class="container" role="contentinfo">
+      <div class="brand" style="margin-bottom:.4rem">
+        <img class="logo-img" src="logo.png" alt="Algoritm Akademiyasi logotipi" />
+        <span>Algoritm Akademiyasi</span>
+      </div>
+      <div class="muted">© <span id="year"></span> Algoritm Akademiyasi. Made in Uzbekistan.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Open external links in new tab if not already
+    document.querySelectorAll('a[href^="http"]').forEach(a=>{
+      if(!a.target){ a.target="_blank"; a.rel="noopener"; }
+    });
+  </script>
+</body>
+</html>
