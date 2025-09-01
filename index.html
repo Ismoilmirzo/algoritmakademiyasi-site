@@ -2,17 +2,23 @@
 <html lang="uz">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Algoritm Akademiyasi — Informatika olimpiadalari va CP tayyorgarlik</title>
   <meta name="description" content="Algoritm Akademiyasi: 5 darajali CP va olimpiada tayyorgarligi, real natijalar, mentorlik. Tez aloqa uchun Telegramga yozing." />
   <meta name="theme-color" content="#1E2A44" />
+
+  <!-- Favicons (use your logo.png placed next to index.html) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
+  <link rel="shortcut icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Algoritm Akademiyasi — Informatika olimpiadalari va CP tayyorgarlik" />
   <meta property="og:description" content="5 darajali dastur, natijaga yo‘naltirilgan darslar, mentorlik va real contest tajribasi." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Algoritm+Akademiyasi" />
-  <meta property="og:url" content="https://example.uz" />
+  <meta property="og:url" content="https://algoritmakademiyasi.uz" />
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -20,7 +26,7 @@
     "@context":"https://schema.org",
     "@type":"EducationalOrganization",
     "name":"Algoritm Akademiyasi",
-    "url":"https://example.uz",
+    "url":"https://algoritmakademiyasi.uz",
     "sameAs":[
       "https://t.me/algoritm_akademiyasi",
       "https://www.instagram.com/algoritm_akademiyasi/"
@@ -30,106 +36,169 @@
   </script>
 
   <style>
+    /* ---------- Theme & base ---------- */
     :root{
-      --bg:#ffffff;
-      --text:#1E2A44;
-      --muted:#5b6b8b;
-      --brand:#00A6A6;
-      --brand-ink:#024a4a;
-      --soft:#F5F7FA;
-      --card:#ffffff;
-      --shadow: 0 10px 20px rgba(30,42,68,0.08);
-      --radius:18px;
+      --bg:#ffffff; --text:#1E2A44; --muted:#5b6b8b;
+      --brand:#00A6A6; --soft:#F5F7FA; --card:#ffffff;
+      --shadow:0 10px 20px rgba(30,42,68,.08);
+      --radius:18px; --maxw:1160px;
     }
     @media (prefers-color-scheme: dark){
       :root{
-        --bg:#0e1422;
-        --text:#e9eefc;
-        --muted:#b1bddb;
-        --brand:#22c7c7;
-        --brand-ink:#083c3c;
-        --soft:#121a2e;
-        --card:#10192b;
-        --shadow: 0 10px 20px rgba(0,0,0,0.35);
+        --bg:#0e1422; --text:#e9eefc; --muted:#b1bddb;
+        --brand:#22c7c7; --soft:#121a2e; --card:#10192b;
+        --shadow:0 10px 20px rgba(0,0,0,.35);
       }
     }
     *,*::before,*::after{box-sizing:border-box}
-    html,body{margin:0;padding:0}
+    html,body{margin:0}
     body{
       font-family: system-ui,-apple-system,"Segoe UI",Roboto,Inter,"Noto Sans",Arial,sans-serif;
-      background:var(--bg); color:var(--text);
-      line-height:1.6;
+      background:var(--bg); color:var(--text); line-height:1.6;
+      -webkit-text-size-adjust:100%;
     }
+    img{max-width:100%; height:auto; display:block}
     a{color:var(--brand); text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1160px; margin:0 auto; padding:0 20px}
-    .btn{
-      display:inline-flex; align-items:center; gap:.5rem;
-      background:var(--brand); color:#fff; padding:.9rem 1.2rem;
-      border-radius:12px; font-weight:600; border:0; cursor:pointer;
-      box-shadow: var(--shadow); text-decoration:none;
-      transition: transform .05s ease;
+
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:0 clamp(16px, 4vw, 28px);
     }
-    .btn:active{transform: translateY(1px)}
+
+    /* ---------- Buttons & chips ---------- */
+    .btn{
+      display:inline-flex; align-items:center; gap:.55rem;
+      background:var(--brand); color:#fff; padding:.9rem 1.1rem;
+      border-radius:12px; font-weight:600; border:0; cursor:pointer;
+      box-shadow:var(--shadow); text-decoration:none;
+      transition:transform .06s ease;
+      white-space:nowrap;
+    }
+    .btn:active{transform:translateY(1px)}
     .btn.secondary{background:transparent; color:var(--brand); border:2px solid var(--brand)}
     .btn.ghost{background:transparent; color:var(--text)}
     .pill{display:inline-block; padding:.35rem .7rem; border-radius:999px; background:var(--soft); color:var(--muted); font-size:.85rem}
-    .tag{padding:.25rem .6rem; border:1px solid var(--soft); border-radius:999px; font-size:.8rem; color:var(--muted)}
+    .tag{padding:.25rem .6rem; border:1px solid var(--soft); border-radius:999px; font-size:.8rem; color:var(--muted); display:inline-block}
+
+    /* ---------- Header & nav ---------- */
     header{
-      position:sticky; top:0; z-index:50; background:rgba(255,255,255,.7);
-      backdrop-filter: blur(8px); border-bottom:1px solid rgba(0,0,0,.05);
+      position:sticky; top:0; z-index:60;
+      background:rgba(255,255,255,.72);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(0,0,0,.06);
     }
-    @media (prefers-color-scheme: dark){ header{background: rgba(16,25,43,.6); border-bottom-color:rgba(255,255,255,.06)} }
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:.8rem 0}
+    @media (prefers-color-scheme: dark){
+      header{background:rgba(16,25,43,.6); border-bottom-color:rgba(255,255,255,.06)}
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; padding:.7rem 0;
+    }
     .brand{display:flex; align-items:center; gap:.7rem; font-weight:800; letter-spacing:.3px}
-    .logo-img{width:36px; height:36px; border-radius:10px; box-shadow:var(--shadow); object-fit:cover}
-    nav ul{display:flex; list-style:none; gap:1rem; padding:0; margin:0}
-    nav a{color:var(--text); font-weight:600}
+    .logo-img{width:clamp(28px, 7vw, 44px); height:auto; border-radius:10px; box-shadow:var(--shadow)}
+    .menu{display:flex}
+    .menu ul{list-style:none; display:flex; gap:.9rem; margin:0; padding:0}
+    .menu a{color:var(--text); font-weight:600}
+    .menu-toggle{
+      display:none; border:1px solid var(--soft); background:transparent; color:var(--text);
+      padding:.55rem .7rem; border-radius:10px; font-weight:700;
+    }
+    /* Mobile nav */
+    @media (max-width: 900px){
+      .menu-toggle{display:inline-flex}
+      .menu{
+        position:absolute; top:100%; left:0; right:0;
+        display:none; background:var(--card); box-shadow:var(--shadow);
+        border-bottom-left-radius:14px; border-bottom-right-radius:14px;
+      }
+      .menu.open{display:block}
+      .menu ul{flex-direction:column; padding:10px}
+      .menu li a{display:block; padding:.7rem .9rem}
+    }
+
+    /* ---------- Sections ---------- */
+    section{scroll-margin-top:80px; padding: clamp(36px, 6vw, 64px) 0}
     .hero{
-      padding:64px 0 40px; position:relative; overflow:hidden;
+      padding-top: clamp(44px, 7vw, 72px);
       background: radial-gradient(1200px 400px at 50% -80px, var(--soft), transparent 60%);
     }
-    .hero h1{font-size:clamp(28px, 3.6vw, 44px); line-height:1.15; margin:.4rem 0 1rem}
-    .lead{font-size:1.1rem; color:var(--muted); max-width:800px}
-    .hero-cta{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.2rem}
-    .hero-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px}
-    .stat{background:var(--card); border-radius:var(--radius); box-shadow: var(--shadow); padding:16px; text-align:center}
-    .stat b{font-size:1.3rem; display:block}
-    @media (max-width:800px){ .hero-stats{grid-template-columns:repeat(2,1fr)} }
-    section{scroll-margin-top:90px; padding:54px 0}
+    .hero h1{
+      font-size: clamp(22px, 5vw, 42px);
+      line-height:1.18; margin:.4rem 0 1rem;
+    }
+    .lead{font-size:clamp(15px, 2.2vw, 18px); color:var(--muted); max-width:860px}
+    .hero-cta{display:flex; flex-wrap:wrap; gap:.7rem; margin-top:1.1rem}
+
+    .hero-stats{
+      display:grid; gap:12px; margin-top:24px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    .stat{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px; text-align:center}
+    .stat b{font-size:clamp(16px, 2.8vw, 20px); display:block}
+    @media (max-width:900px){ .hero-stats{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:520px){ .hero-stats{grid-template-columns:1fr} }
+
     .grid{display:grid; gap:16px}
-    .cards{grid-template-columns: repeat(3,1fr)}
-    @media (max-width:1000px){ .cards{grid-template-columns: repeat(2,1fr)} }
-    @media (max-width:680px){ .cards{grid-template-columns: 1fr} }
-    .card{background:var(--card); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
-    .card h3{margin:.2rem 0 .4rem}
-    .card ul{margin:.4rem 0 0 1.1rem}
+    .cards{grid-template-columns:repeat(3, minmax(0,1fr))}
+    @media (max-width:1100px){ .cards{grid-template-columns:repeat(2, minmax(0,1fr))} }
+    @media (max-width:700px){ .cards{grid-template-columns:1fr} }
+
+    .card{background:var(--card); border-radius:var(--radius); padding:clamp(14px, 2.5vw, 20px); box-shadow:var(--shadow)}
+    .card h3{margin:.2rem 0 .5rem}
+    .card ul{margin:.35rem 0 0 1.1rem}
     .muted{color:var(--muted)}
-    .section-title{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:18px}
-    .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
-    .kpi{background:var(--card); border-radius:var(--radius); padding:18px; text-align:center; box-shadow:var(--shadow)}
-    @media (max-width:900px){ .kpis{grid-template-columns:repeat(2,1fr)} }
-    .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .section-title{display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:16px; flex-wrap:wrap}
+
+    .kpis{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:12px}
+    .kpi{background:var(--card); border-radius:var(--radius); padding:16px; text-align:center; box-shadow:var(--shadow)}
+    @media (max-width:1100px){ .kpis{grid-template-columns:repeat(2, minmax(0,1fr))} }
+    @media (max-width:560px){ .kpis{grid-template-columns:1fr} }
+
+    .testimonials{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px}
     .quote{background:var(--card); border-left:4px solid var(--brand); border-radius:14px; padding:16px; box-shadow:var(--shadow)}
-    @media (max-width:900px){ .testimonials{grid-template-columns:1fr} }
+    @media (max-width:1000px){ .testimonials{grid-template-columns:1fr} }
+
     details{background:var(--card); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
     details + details{margin-top:10px}
     summary{cursor:pointer; font-weight:700}
-    .contact{display:grid; grid-template-columns:1fr; gap:16px}
-    .socials{display:flex; flex-wrap:wrap; gap:.6rem}
-    .social-btn{display:inline-flex; align-items:center; gap:.5rem; border:1px solid var(--soft); border-radius:12px; padding:.7rem .9rem; color:var(--text)}
-    .sticky-cta{
-      position:fixed; bottom:12px; left:12px; right:12px; display:none;
-      background:var(--brand); color:#fff; border-radius:16px; padding:.9rem 1rem;
-      box-shadow: var(--shadow); align-items:center; justify-content:center; gap:.6rem; font-weight:700;
+
+    .contact .socials{display:flex; flex-wrap:wrap; gap:.6rem}
+
+    /* ---------- About grid with mobile reverse ---------- */
+    .about-grid{
+      display:grid; gap:16px;
+      grid-template-columns:1.2fr .8fr;
+      grid-template-areas:"left right";
     }
-    .sticky-cta:active{transform: translateY(1px)}
+    .about-left{grid-area:left}
+    .about-right{grid-area:right}
+    @media (max-width:700px){
+      .about-grid{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "right"  /* show Asoschi & Mentor first */
+          "left";  /* then Missiya */
+      }
+    }
+
+    /* ---------- Sticky CTA (mobile) ---------- */
+    .sticky-cta{
+      position:fixed; left:12px; right:12px; bottom:12px;
+      display:none; background:var(--brand); color:#fff; border-radius:16px;
+      padding:.9rem 1rem; box-shadow:var(--shadow);
+      align-items:center; justify-content:center; gap:.6rem; font-weight:700;
+      padding-bottom:calc(.9rem + env(safe-area-inset-bottom, 0px));
+    }
     @media (max-width:760px){ .sticky-cta{display:flex} }
-    footer{padding:24px 0 80px; color:var(--muted)}
-    .sr-only{position:absolute; width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
-    .skip:focus{left:16px; top:16px; width:auto; height:auto; background:var(--brand); color:#fff; padding:.5rem .8rem; border-radius:10px; z-index:100}
+    .sticky-cta:active{transform:translateY(1px)}
+
+    footer{padding:24px 0 84px; color:var(--muted)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip{position:absolute; left:-9999px} .skip:focus{left:16px; top:16px; background:var(--brand); color:#fff; padding:.5rem .8rem; border-radius:10px; z-index:100}
     .inline-icon{width:18px;height:18px;display:inline-block;vertical-align:-3px}
+    @media (prefers-reduced-motion: reduce){ *{scroll-behavior:auto !important; transition:none !important} }
   </style>
 </head>
 <body>
@@ -141,7 +210,10 @@
         <img class="logo-img" src="logo.png" alt="Algoritm Akademiyasi logotipi" />
         <span>Algoritm Akademiyasi</span>
       </div>
-      <nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="menu">Menyu</button>
+
+      <nav class="menu" id="menu">
         <ul>
           <li><a href="#about">Biz haqimizda</a></li>
           <li><a href="#programs">Dasturlar</a></li>
@@ -157,7 +229,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <span class="pill">Olimpiada &middot; Competitive Programming · Onlayn darslar</span>
+        <span class="pill">Olimpiada · Competitive Programming · Onlayn darslar</span>
         <h1>Algoritm Akademiyasi — informatik olimpiadalar va CP bo‘yicha kuchli tayyorgarlik.</h1>
         <p class="lead">5 darajali dastur, natijaga yo‘naltirilgan darslar, mentorlik va <b>real contest</b> tajribasi. Eng tez aloqa — <a href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener">Telegram</a>.</p>
         <div class="hero-cta">
@@ -184,8 +256,9 @@
           <h2>Biz haqimizda</h2>
           <span class="tag">Onlayn darslar</span>
         </div>
-        <div class="grid" style="grid-template-columns:1.2fr .8fr">
-          <div class="card">
+
+        <div class="about-grid">
+          <div class="card about-left">
             <h3>Missiya</h3>
             <p>Biz o‘quvchilarga <b>masala yechish orqali fikrlash</b>ni o‘rgatamiz: vaqtni boshqarish, to‘g‘ri strategiya, va real musobaqa tajribasi.</p>
             <h3>Yondashuv</h3>
@@ -197,7 +270,8 @@
               <li>Anti-cheating siyosati — uzoq masofaga yuguramiz.</li>
             </ul>
           </div>
-          <div class="card">
+
+          <div class="card about-right">
             <h3>Asoschi & Mentor</h3>
             <p><b>Ismoilmirzo Inoyatov</b> — informatika fanidan Respublika olimpiadasida <b>top 3</b>, ko‘p yillik olimpiada va CP tajribasi bilan murabbiylik qiladi.</p>
             <p class="muted">“Har bir dars aniq natijaga bog‘langan.”</p>
@@ -319,8 +393,8 @@
           <p>Qisqa yo‘llar — qisqa natijalar. Akademiyada mustaqil fikrlash, tushunish va halol practice qadrlanadi.</p>
         </details>
         <details>
-          <summary>Sertifikatlar beriladimi?</summary>
-          <p>Ha, daraja yakunida ichki sertifikat beriladi. Asosiy e’tibor — <b>haqiqiy natija va rivojlanish</b>.</p>
+          <summary>Sertifikatlar berilasimi?</summary>
+          <p>Ha, daraja yakunida ichki sertifikat beriladi. Asosiy e’tibor — <b>real natija va portfolio</b>.</p>
         </details>
       </div>
     </section>
@@ -332,23 +406,14 @@
           <h2>Aloqa</h2>
           <span class="muted">Eng tez yo‘l — Telegramga yozing</span>
         </div>
-        <div class="contact">
-          <div class="card">
-            <h3>To‘g‘ridan-to‘g‘ri xabar (DM)</h3>
-            <p><a class="btn" href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener">Telegramga yozish</a></p>
-            <p class="muted">Savolingiz, daraja tanlash, jadval va narxlar uchun shu yerga yozing.</p>
-            <h3 style="margin-top:14px">Ijtimoiy tarmoqlar</h3>
-            <div class="socials">
-              <a class="social-btn" href="https://t.me/algoritm_akademiyasi" target="_blank" rel="noopener" aria-label="Telegram kanal">
-                <svg class="inline-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 13.2l.2 3.7c.3 0 .5-.1.7-.3l1.7-1.6 3.5 2.6c.6.3 1.1.1 1.3-.6l2.4-11c.2-.9-.3-1.3-1.1-1l-14 5.4c-.9.3-.9.9-.2 1.1l3.6 1.1 8.3-5.2-5.1 5.6z" fill="currentColor"/></svg>
-                Telegram kanal
-              </a>
-              <a class="social-btn" href="https://www.instagram.com/algoritm_akademiyasi/" target="_blank" rel="noopener" aria-label="Instagram">
-                <svg class="inline-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm7-1a1 1 0 10-2 0 1 1 0 002 0z" stroke="currentColor" stroke-width="2"/></svg>
-                Instagram
-              </a>
-            </div>
-          </div>
+        <div class="card">
+          <h3>To‘g‘ridan-to‘g‘ri xabar (DM)</h3>
+          <p style="display:flex; gap:.6rem; flex-wrap:wrap">
+            <a class="btn" href="https://t.me/ismoilmirzouz" target="_blank" rel="noopener">Telegramga yozish</a>
+            <a class="btn secondary" href="https://t.me/algoritm_akademiyasi" target="_blank" rel="noopener">Kanalga qo‘shilish</a>
+            <a class="btn ghost" href="https://www.instagram.com/algoritm_akademiyasi/" target="_blank" rel="noopener">Instagramni ko‘rish</a>
+          </p>
+          <p class="muted">Savolingiz, daraja tanlash, jadval va narxlar uchun shu yerga yozing.</p>
         </div>
       </div>
     </section>
@@ -373,6 +438,18 @@
   <script>
     // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle + close on link click
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    toggle?.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    menu?.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+      menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+    }));
+
     // Open external links in new tab if not already
     document.querySelectorAll('a[href^="http"]').forEach(a=>{
       if(!a.target){ a.target="_blank"; a.rel="noopener"; }
