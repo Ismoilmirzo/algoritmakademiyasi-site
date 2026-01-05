@@ -184,6 +184,29 @@
       }
     }
 
+    /* Mentorlar grid */
+    .mentors-grid{
+      display:grid; gap:16px;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+    }
+    @media (max-width:1100px){ .mentors-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:680px){ .mentors-grid{grid-template-columns:1fr} }
+
+    .mentor-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:14px;
+      display:flex; gap:12px; align-items:flex-start;
+    }
+    .mentor-photo{
+      width:76px; height:76px; flex:0 0 76px;
+      border-radius:14px; object-fit:cover; box-shadow:var(--shadow);
+    }
+    .mentor-name{ margin:.1rem 0 .25rem; font-size:1.05rem; font-weight:800; }
+    .mentor-meta{ margin:0; color:var(--muted); font-size:.95rem; line-height:1.45; }
+
+
     /* ---------- Sticky CTA (mobile) ---------- */
     .sticky-cta{
       position:fixed; left:12px; right:12px; bottom:12px;
@@ -221,6 +244,7 @@
           <li><a href="#results">Natijalar</a></li>
           <li><a href="#faqs">Savollar</a></li>
           <li><a href="#contact">Aloqa</a></li>
+          <li><a href="#mentors">Mentorlar</a></li>
           <li><a href="https://sites.google.com/view/sertifikatcheck" target="_blank" rel="noopener">Sertifikat tekshirish</a></li>
         </ul>
       </nav>
@@ -283,6 +307,74 @@
         </div>
       </div>
     </section>
+
+    <!-- Mentorlar -->
+    <section id="mentors">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mentorlar</h2>
+          <span class="tag">Tajriba & yutuqlar</span>
+        </div>
+
+        <div class="mentors-grid">
+          <!-- Husanboy -->
+          <article class="mentor-card">
+            <img class="mentor-photo" src="Husanboy.png" alt="Husanboy Mansuraliyev" loading="lazy">
+            <div>
+              <h3 class="mentor-name">Husanboy Mansuraliyev</h3>
+              <p class="mentor-meta">
+                IOI’da 2 marta qatnashgan • Respublika olimpiadasida 1-o‘rin • IZhO kumush va bronza medal
+              </p>
+            </div>
+          </article>
+
+          <!-- Ismoilmirzo -->
+          <article class="mentor-card">
+            <img class="mentor-photo" src="Ismoilmirzo.png" alt="Ismoilmirzo Inoyatov" loading="lazy">
+            <div>
+              <h3 class="mentor-name">Ismoilmirzo Inoyatov</h3>
+              <p class="mentor-meta">
+                Respublika olimpiadasida 3-o‘rin • IOI saralash oxirgi bosqichida 6-o‘rin (2 marta)
+              </p>
+            </div>
+          </article>
+
+          <!-- Eldor -->
+          <article class="mentor-card">
+            <img class="mentor-photo" src="Eldor.png" alt="Eldor Anvarov" loading="lazy">
+            <div>
+              <h3 class="mentor-name">Eldor Anvarov</h3>
+              <p class="mentor-meta">
+                Respublika bo‘yicha 2-, 2- va 3-o‘rinlar • IOI saralash oxirgi bosqichiga o‘tgan (2 marta)
+              </p>
+            </div>
+          </article>
+
+          <!-- Sarvar -->
+          <article class="mentor-card">
+            <img class="mentor-photo" src="Sarvar.png" alt="Sarvar Saydullayev" loading="lazy">
+            <div>
+              <h3 class="mentor-name">Sarvar Saydullayev</h3>
+              <p class="mentor-meta">
+                IOI saralash oxirgi bosqichiga o‘tgan • Python (backend) middle dasturchi
+              </p>
+            </div>
+          </article>
+
+          <!-- Javohir -->
+          <article class="mentor-card">
+            <img class="mentor-photo" src="Javohir.png" alt="Javohir Toshtemirov" loading="lazy">
+            <div>
+              <h3 class="mentor-name">Javohir Toshtemirov</h3>
+              <p class="mentor-meta">
+                IOI saralash oxirgi bosqichiga o‘tgan (2 marta) • APIO bronza • Respublika olimpiadasida 2-o‘rin
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
 
     <!-- Programs -->
     <section id="programs">
