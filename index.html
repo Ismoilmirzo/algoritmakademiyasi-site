@@ -184,6 +184,61 @@
       }
     }
 
+    /* ===== Results Gallery (between KPIs and quotes) ===== */
+    .results-block{ margin-top:16px; }
+    .gallery-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin:8px 0 10px;
+    }
+    .gallery-head h3{ margin:0; }
+    .gallery-sub{ color:var(--muted); }
+
+    .gallery-grid{
+      display:grid; gap:12px;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+    }
+    @media (max-width:1100px){ .gallery-grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:640px){ .gallery-grid{grid-template-columns:1fr} }
+
+    .gallery-grid.single{
+      grid-template-columns:min(760px, 100%);
+      justify-content:center;
+    }
+
+    .card-photo{
+      position:relative; overflow:hidden; border-radius:var(--radius);
+      background:var(--card); box-shadow:var(--shadow);
+      isolation:isolate; /* ensure overlay stacks right */
+    }
+    .card-photo.portrait{ aspect-ratio:7/10; }
+    .card-photo.square{ aspect-ratio:1/1; }
+
+    .card-photo img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transform:scale(1.02); transition:transform .25s ease;
+    }
+    .card-photo::before{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0) 55%);
+      opacity:.65; transition:opacity .25s ease;
+    }
+    .card-photo:hover img{ transform:scale(1.05); }
+    .card-photo:hover::before{ opacity:.8; }
+
+    .photo-cta{
+      position:absolute; right:10px; bottom:10px; z-index:2;
+      background:rgba(255,255,255,.9); color:#0b1528;
+      border-radius:12px; padding:.35rem .6rem; font-weight:700; font-size:.85rem;
+      box-shadow:var(--shadow); text-decoration:none;
+    }
+    .photo-cta:hover{ text-decoration:none; }
+
+    .photo-cap{
+      position:absolute; left:10px; bottom:10px; z-index:2;
+      color:#fff; font-weight:700; text-shadow:0 2px 6px rgba(0,0,0,.45);
+    }
+
+
     /* Mentorlar grid */
     .mentors-grid{
       display:grid; gap:16px;
@@ -240,11 +295,11 @@
       <nav class="menu" id="menu">
         <ul>
           <li><a href="#about">Biz haqimizda</a></li>
+          <li><a href="#mentors">Mentorlar</a></li>
           <li><a href="#programs">Dasturlar</a></li>
           <li><a href="#results">Natijalar</a></li>
           <li><a href="#faqs">Savollar</a></li>
           <li><a href="#contact">Aloqa</a></li>
-          <li><a href="#mentors">Mentorlar</a></li>
           <li><a href="https://sites.google.com/view/sertifikatcheck" target="_blank" rel="noopener">Sertifikat tekshirish</a></li>
         </ul>
       </nav>
@@ -269,7 +324,7 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat"><b>Top-10 Respublika</b><span class="muted">final bosqichida</span></div>
+          <div class="stat"><b>Eng yaxshi</b><span class="muted">online o'quv markaz</span></div>
           <div class="stat"><b>3 kun/hafta</b><span class="muted">2 soat/dars</span></div>
           <div class="stat"><b>Maxsus masalalar</b><span class="muted">har dars uchun</span></div>
         </div>
@@ -297,13 +352,6 @@
             </ul>
           </div>
 
-          <div class="card about-right">
-            <h3>Mentorlar</h3>
-            <p><b>Ismoilmirzo Inoyatov</b> — informatika fanidan Respublika olimpiadasida <b>top 3</b>, ko‘p yillik olimpiada va CP tajribasi bilan murabbiylik qiladi.</p>
-            <p class="muted">“Har bir dars aniq natijaga bog‘langan.”</p>
-            <p><b>Eldor Anvarov</b> — Agentlik olimpiadasi Respublika bosqichida 3 marta <b>top 3</b>, algoritmlarni amaliyotda qo'llash va olimpiadalarda katta tajribaga ega mentor .</p>
-            <p class="muted">“Algoritmlar fikrlashni rivojlantiradi.”</p>
-          </div>
         </div>
       </div>
     </section>
@@ -451,6 +499,42 @@
           <div class="kpi"><b>Respublika finalchilari</b><div class="muted">muntazam</div></div>
           <div class="kpi"><b>Codeforces practice</b><div class="muted">live tahlillar</div></div>
           <div class="kpi"><b>Mentorlik</b><div class="muted">individual yo‘l xarita</div></div>
+        </div>
+
+        <!-- Results gallery: between KPIs and testimonials -->
+        <div class="results-block">
+          <div class="gallery-head">
+            <h3>Viloyat olimpiadasida ko‘rsatilgan natijalar</h3>
+            <span class="gallery-sub">Suratlarni kattalashtirib ko‘rishingiz mumkin</span>
+          </div>
+
+          <div class="gallery-grid">
+            <figure class="card-photo portrait">
+              <img src="vil1.jpg" alt="Viloyat olimpiadasi natijasi — 1" loading="lazy">
+            </figure>
+
+            <figure class="card-photo portrait">
+              <img src="vil2.jpg" alt="Viloyat olimpiadasi natijasi — 2" loading="lazy">
+            </figure>
+
+            <figure class="card-photo portrait">
+              <img src="vil3.jpg" alt="Viloyat olimpiadasi natijasi — 3" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="results-block">
+          <div class="gallery-head">
+            <h3>IOI saralashdagi natijamiz</h3>
+            <span class="gallery-sub">Final bosqich yo‘nalishlari bo‘yicha</span>
+          </div>
+
+          <div class="gallery-grid single">
+            <figure class="card-photo square">
+              <img src="ioi.jpg" alt="IOI saralash natijasi" loading="lazy">
+              <figcaption class="photo-cap">IOI Saralash</figcaption>
+            </figure>
+          </div>
         </div>
 
         <div class="testimonials" style="margin-top:14px">
